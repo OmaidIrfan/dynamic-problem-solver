@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo-Course-Project</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/problem-solver.css') }}">
+    <link rel="stylesheet" href="../static/styles/problem-solver.css">
+</head>
+<body>
+    <div id="C1">
+        <br>
+        <label>Dynamic</label>
+        <sub><a href="http://127.0.0.1:5000">Go back to Dashboard</a></sub>
+        <img src="../static/styles/001-job-search.png" alt="">
+    </div>
+    {% for message in get_flashed_messages() %}
+        <div class="warning">
+            <p>{{ message }}</p>
+        </div>
+    {% endfor %}
+    <div class="Head">
+        <h1>{{algo}}</h1>
+    </div>
+    <form action="http://127.0.0.1:5000//getAnswer" method="post">
+        <div class="Container01">
+            <h1>Select Input</h1>
+            <div class="Containerb">
+                <br>
+                <input type="text" name = "input-01" value = "0" id="in1">
+                <div class="C1" onclick=selected(this);i01()> <br> {{datasets.input01}} </div>
+                <br>
+                <input type="text" name = "input-03" value = "0" id="in3">
+                <div class="C1" onclick=selected(this);i03();> <br> {{datasets.input03}} </div>
+                <br>
+                <input type="text" name = "input-05" value = "0" id="in5">
+                <div class="C1" onclick=selected(this);i05();> <br> {{datasets.input05}} </div>
+                <br>
+                <input type="text" name = "input-07" value = "0" id="in7">
+                <div class="C1" onclick=selected(this);i07();> <br> {{datasets.input07}} </div>
+                <br>
+                <input type="text" name = "input-09" value = "0" id="in9">
+                <div class="C1" onclick=selected(this);i09();> <br> {{datasets.input09}} </div>
+                <br>
+                <input type="text" name = "input-02" value = "0" id="in2">
+                <div class="C1" onclick=selected(this);i02();> <br> {{datasets.input02}} </div>
+                <br>
+                <input type="text" name = "input-04" value = "0" id="in4">
+                <div class="C1" onclick=selected(this);i04();> <br> {{datasets.input04}} </div>
+                <br>
+                <input type="text" name = "input-06" value = "0" id="in6">
+                <div class="C1" onclick=selected(this);i06();> <br> {{datasets.input06}} </div>
+                <br>
+                <input type="text" name = "input-08" value = "0" id="in8">
+                <div class="C1" onclick=selected(this);i08();> <br> {{datasets.input08}} </div>
+                <br>
+                <input type="text" name = "input-10" value = "0" id="in10">
+                <div class="C1" onclick=selected(this);i10();> <br> {{datasets.input10}} </div>
+            </div>
+        </div>
+        <div class="Container03">
+            <h1>Output</h1>
+            <br>
+            <label for="uname"><b>Algorithm</b></label>
+            <br>
+            <input type="text" placeholder="Enter cnic" name="fu_cnic" required autocomplete="off" value="{{result.algorithm}}" disabled>
+            <br>
+            <br>
+            <label for="uname"><b>Input</b></label>
+            <br>
+            <input type="text" placeholder="Enter Age" name="fu_age" required autocomplete="off" value="{{result.input}}" disabled>
+            <br>
+            <br>
+            <label for="uname"><b>Output</b></label>
+            <br>
+            <input type="text" placeholder="Enter Age" name="fu_age" required autocomplete="off" value="{{result.output}}" disabled>
+            <button>Get Answer</button>
+        </div>
+    </form>
+    <script>
+        var divItems = document.getElementsByClassName("C1");
+    
+        function selected(item) {
+            this.clear();
+            item.style.backgroundColor = '#9ad88a';
+        }
+        
+        function clear() {
+            for(var i=0; i < divItems.length; i++) {
+                var item = divItems[i];
+                item.style.backgroundColor = 'rgba(157, 90, 219, 0.822)';
+            }
+        }
+    
+        function i01() 
+        {
+            document.getElementById("in1").value = "1";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i02() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "1";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i03() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "1";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i04() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "1";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i05() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "1";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i06() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "1";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i07() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "1";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i08() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "1";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i09() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "1";
+            document.getElementById("in10").value = "0";
+        }
+    
+        function i10() 
+        {
+            document.getElementById("in1").value = "0";
+            document.getElementById("in2").value = "0";
+            document.getElementById("in3").value = "0";
+            document.getElementById("in4").value = "0";
+            document.getElementById("in5").value = "0";
+            document.getElementById("in6").value = "0";
+            document.getElementById("in7").value = "0";
+            document.getElementById("in8").value = "0";
+            document.getElementById("in9").value = "0";
+            document.getElementById("in10").value = "1";
+        }
+    </script>
+</body>
+</html>
